@@ -1,5 +1,5 @@
-﻿  Joueur.cpp
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(11,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+﻿  main.cpp
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(23,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -8,7 +8,7 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(11,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(23,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -17,140 +17,9 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(54,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(54,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(69,52): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(69,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-  main.cpp
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(34,67): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(34,51): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(35,73): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(35,57): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(36,79): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(36,57): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(37,73): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(37,51): warning C4244: 'argument' : conversion de 'unsigned int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(40,70): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(40,53): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(41,76): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(41,59): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(42,82): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(42,59): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(43,76): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\TileMap.h(43,53): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(12,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(51,68): warning C4018: '<=' : incompatibilité signed/unsigned
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(62,68): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(73,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -159,7 +28,7 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(12,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(73,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -168,21 +37,214 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(27,51): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(40,68): warning C4018: '<=' : incompatibilité signed/unsigned
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(44,51): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(51,68): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(70,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(125,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(70,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(125,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(11,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(165,13): warning C4101: 'nbElem' : variable locale non référencée
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(219,52): warning C4838: la conversion de 'T' en 'int' requiert une conversion restrictive
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(219,52): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(219,87): warning C4838: la conversion de 'T' en 'int' requiert une conversion restrictive
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(219,87): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(271,52): warning C4838: la conversion de 'T' en 'int' requiert une conversion restrictive
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(271,52): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(271,87): warning C4838: la conversion de 'T' en 'int' requiert une conversion restrictive
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(271,87): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(394,22): warning C4244: 'initialisation' : conversion de 'const T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\IA.h(395,22): warning C4244: 'initialisation' : conversion de 'const T' en 'int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(27,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(28,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(40,72): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(40,52): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(41,78): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(41,58): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(42,84): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(42,58): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(43,78): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(43,52): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(46,79): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(46,56): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(47,85): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(47,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(48,91): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(48,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(49,85): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Map.h(49,56): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(13,97): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -191,7 +253,7 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(11,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(13,62): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
               T=float
@@ -200,35 +262,47 @@ C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(54,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(77,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(54,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(77,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
               T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(69,52): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(104,52): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(69,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Joueur.h(104,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\main.cpp(41,57): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Fantome.h(53,59): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
-              T=int
+              T=unsigned int
           ]
-C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\main.cpp(41,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Fantome.h(53,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
           with
           [
-              T=int
+              T=unsigned int
           ]
-  Génération de code en cours...
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Fantome.h(83,52): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\Fantome.h(83,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\main.cpp(38,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\main.cpp(182,53): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\AmongThem\main.cpp(182,38): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   AmongThem.vcxproj -> C:\Users\Mugiw\OneDrive\Bureau\alexis_kusnirek\Master1\Semestre 2\TER\AmongThem\Debug\AmongThem.exe

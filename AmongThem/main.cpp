@@ -1,123 +1,65 @@
 #pragma region include
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include <iostream>
 #include <cmath>
-#include "TileMap.h"
+#include <random>
+#include <vector>
+#include "Map.h"
 #include "IA.h"
 #include "Joueur.h"
+#include "Fantome.h"
 #pragma endregion include
 
 #pragma region Variable
 sf::RenderWindow window;
-sf::Vector2i posSouris;
-
-sf::Texture fantome;
-sf::Sprite fantomeSprite;
-sf::Texture perso;
-sf::Sprite persoSprite;
-
+sf::Image icon;
 sf::View vu;
+sf::Texture textureFin;
+sf::Sprite spriteFin;
 
 //Pour enpecher le décalage en fesant demitour
 bool direcFantome = true;
 bool direcPerso = true;
+bool doublon;
+bool SurvivantInsuffisant;
 
-/*sf::Texture map;
-sf::Sprite mapSprite;*/
-
-int nbSprite = 1;
-int nbSpritePerso = 1;
 std::string nomPicture;
 int longueurPage = 1600;
 int hauteurPage = 900;
+
+IA* victime;
+sf::Event event;
 #pragma endregion Variable
 
-#pragma region Mouvement
-
-void gestionSouris() {
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        posSouris = sf::Mouse::getPosition(window);
-        fantomeSprite.setPosition(posSouris.x, posSouris.y);
-        //std::cout << "Position x de la souris = " << posSouris.x << " ,et y = " << posSouris.y << std::endl;
+void nettoieCadavre(std::vector<IA*> &IAvivante ,std::vector<IA*>& IAmort) {
+    IAmort.clear();
+    for (int i = 0; i < IAvivante.size(); i++) {
+        if (!IAvivante[i]->estVivant) {
+            IAvivante.erase(IAvivante.begin() + i);
+            i--;
+        }
+        else
+            IAvivante[i]->Respawn();
     }
 }
 
-void gestionFantome() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-        fantomeSprite.move(0.0, -20.0);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        fantomeSprite.move(0.0, 20.0);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-        fantomeSprite.move(-20.0, 0.0);
-        fantomeSprite.setScale(-1, 1);
-        if (direcFantome == true) {
-            direcFantome = false;
-            fantomeSprite.setPosition(fantomeSprite.getPosition().x + 92, fantomeSprite.getPosition().y);
-        }
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        fantomeSprite.move(20.0, 0.0);
-        fantomeSprite.setScale(1, 1);
-        if (direcFantome == false) {
-            direcFantome = true;
-            fantomeSprite.setPosition(fantomeSprite.getPosition().x - 92, fantomeSprite.getPosition().y);
-        }
-    }
-}
-
-std::string getImagePerso() {
-    nbSpritePerso++;
-    if (nbSpritePerso > 12) {
-        nbSpritePerso = 1;
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-        if (nbSpritePerso < 10) {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor000" + std::to_string(nbSpritePerso) + ".png";
-        }
-        else {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor00" + std::to_string(nbSpritePerso) + ".png";
-        }
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        if (nbSpritePerso < 10) {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor000" + std::to_string(nbSpritePerso) + ".png";
-        }
-        else {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor00" + std::to_string(nbSpritePerso) + ".png";
-        }
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-        if (nbSpritePerso < 10) {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor000" + std::to_string(nbSpritePerso) + ".png";
-        }
-        else {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor00" + std::to_string(nbSpritePerso) + ".png";
-        }
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        if (nbSpritePerso < 10) {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor000" + std::to_string(nbSpritePerso) + ".png";
-        }
-        else {
-            return "SpritePlayer/Among Us - Player Base/Individual Sprites/Walk/walkcolor00" + std::to_string(nbSpritePerso) + ".png";
-        }
-    }
-    nbSpritePerso = 0;
-    return "SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png";
-}
-#pragma endregion Mouvement
 
 int main()
 {
     sf::Clock time;
     sf::Clock temps;
+    sf::Clock temps2;
     window.create(sf::VideoMode(longueurPage, hauteurPage), "Among them");
-    window.setFramerateLimit(30);
+    window.setFramerateLimit(60);
 
-    // on définit le niveau à l'aide de numéro de tuiles
+    if (!icon.loadFromFile("TextureMap/icone.png"))
+        EXIT_FAILURE;
+
+    window.setIcon(32, 32, icon.getPixelsPtr());
+
+    // on définit la carte à l'aide de numéro de tuiles
     const int niveau[] = {
         3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3,
         3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 4, 3, 3, 3, 3, 3,
@@ -125,100 +67,135 @@ int main()
         3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3,
 
         6, 6, 6, 6, 6, 6, 6, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6,
-        6, 0, 0, 0, 0, 0, 6, 0, 0, 6, 0, 2, 0, 2, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 6, 0, 10, 9, 6,
-        6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 6,
+        6, 0,13, 0,13, 0, 6, 0, 0, 6, 0, 2, 0, 2, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 6, 0,10, 9, 6,
+        6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0,14,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 6,
         6, 0, 0, 0, 0, 0, 6, 0, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 6,
         6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 2, 0, 2, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 6,
         6, 0, 0, 0, 0, 0, 6, 0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 6, 6, 6, 0, 6,
         6, 6, 0, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6,
         6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6,
-        6, 0, 0, 11, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 0, 6, 6, 6, 6,
-        6, 0, 7, 11, 8, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 0, 0, 1, 6,
-        6, 0, 0, 11, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 1, 1, 1, 0, 0, 6,
-        6, 0, 7, 11, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 6,
-        6, 0, 0, 11, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 0, 0, 1, 0, 0, 6,
-        6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 0, 0, 1, 6,
+        6, 0, 0,11, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 0, 6, 6, 6, 6,
+        6, 0, 7,11, 8, 0, 6, 0, 0, 0, 0, 0, 0, 0,18,18,18, 0, 0, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 0, 0, 1, 6,
+        6, 0, 0,12, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0,18,17,18, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 1, 1, 1, 0, 0, 6,
+        6, 0, 7,11, 8, 0, 0,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18, 0, 0, 0, 1, 0, 0, 1, 0, 0, 6,
+        6, 0, 0,11, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 0, 0, 1, 0, 0, 6,
+        6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 0, 0, 1, 6,
         6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
     };
 
-    // on crée la tilemap avec le niveau précédemment défini
-    TileMap map;
-    if (!map.load("TextureMap/palette.png", sf::Vector2u(150, 150), niveau, 35, 19))
-        return -1;
-    IA partenaire;
-    if (!partenaire.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1500, 1500)))
-        return -1;
+    // on crée la map avec le niveau précédemment défini
+    Map map;
+    if (!map.creerMap("TextureMap/palette.png", sf::Vector2u(150, 150), niveau, 35, 19))
+        EXIT_FAILURE;
+    IA partenaire1;                                                                                       
+    if (!partenaire1.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1500, 1500)))
+        EXIT_FAILURE;
+    IA partenaire2;
+    if (!partenaire2.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1500, 1500)))
+        EXIT_FAILURE;
+    IA partenaire3;
+    if (!partenaire3.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1500, 1500)))
+        EXIT_FAILURE;
     Joueur joueur;
-    if (!joueur.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1500, 1500)))
-        return -1;
+    if (!joueur.load("SpritePlayer/Among Us - Player Base/Individual Sprites/idle.png", sf::Vector2u(1600, 1600)))
+        EXIT_FAILURE;
+    Fantome fantome;
+    if (!fantome.load(sf::Vector2u(1600, 1600)))
+        EXIT_FAILURE;
+
+    std::vector<IA*> IAmort{};
+    std::vector<IA*> IAvivante{ &partenaire1,&partenaire2,&partenaire3 };
+    std::vector<Joueur*> ListeImposteur{ &joueur };
 
     // on fait tourner le programme jusqu'à ce que la fenêtre soit fermée
-    while (window.isOpen())
-    {
-
-        //Chargement de l'image du perso
-        if (time.getElapsedTime().asMilliseconds() >= 40) {//Pour ralentir l'animation
-            if (nbSprite < 10) {
-                nomPicture = "SpritePlayer/Among Us - Player Base/Individual Sprites/Ghost/ghostbob000" + std::to_string(nbSprite) + ".png";
+    while (window.isOpen()){
+        //Pour ralentir l'animation
+        if (temps.getElapsedTime().asMilliseconds() > 40) {
+            for (IA* elem : IAvivante) {
+                if ((*elem).estVivant) {
+                    if ((*elem).corpReperer) {
+                        (*elem).cheminPlusCourt(niveau);
+                        if ((*elem).Report(IAvivante)) {
+                            nettoieCadavre(IAvivante, IAmort);
+                            for (Joueur* player : ListeImposteur) {
+                                (*player).Respawn();
+                            }
+                        }
+                    }
+                    else {
+                        (*elem).MortReperer(niveau, IAvivante);
+                        (*elem).cheminPlusCourt(niveau);
+                    }
+                }
+                else if(!(*elem).load())
+                    EXIT_FAILURE;
             }
-            else {
-                nomPicture = "SpritePlayer/Among Us - Player Base/Individual Sprites/Ghost/ghostbob00" + std::to_string(nbSprite) + ".png";
-            }
-            nbSprite++;
-            if (nbSprite > 48) nbSprite = 1;
-            time.restart();
-        }
-
-        /*if (!map.loadFromFile("SpriteMap/lobby.png"))
-        {
-            std::cout << "Erreur de chargement d'image" << std::endl;
-        }
-        mapSprite.setTexture(map);*/
-
-        if (!fantome.loadFromFile(nomPicture))
-        {
-            std::cout << "Erreur de chargement d'image" << std::endl;
-        }
-        fantomeSprite.setTexture(fantome);
-
-        std::string chemSprite = getImagePerso();
-        if (temps.getElapsedTime().asMilliseconds() > 40) {//Pour ralentir l'animation
-            partenaire.mouvementIA(niveau, 35, 19);
             temps.restart();
         }
 
-        // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
-        sf::Event event;
         while (window.pollEvent(event))
         {
-            // évènement "fermeture demandée" : on ferme la fenêtre
+            SurvivantInsuffisant = (IAvivante.size() - IAmort.size()) <= ListeImposteur.size();
             if (event.type == sf::Event::Closed)
                 window.close();
-            //Gestion d'evenement pour deplacement
-            gestionSouris();
-            gestionFantome();
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
+                doublon = false;
+                victime = joueur.kill(IAvivante);
+                //Pour éviter de mettre deux fois la meme cible dans IAmort
+                for (IA* elem : IAmort) {
+                    if (elem == victime) {
+                        doublon = true;
+                    }
+                }
+                if (victime != NULL && !doublon) {
+                    (*victime).estMort();
+                    IAmort.push_back(victime);
+                }
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+                if (joueur.Report(IAvivante)) {
+                    nettoieCadavre(IAvivante, IAmort);
+                }
+            }
+            //Gestion d'evenement de deplacement
             joueur.mouvementJoueur(niveau, 35, 19);
+            if (temps2.getElapsedTime().asMilliseconds() > 40) {//Pour ralentir l'animation
+                if (!joueur.load())
+                    EXIT_FAILURE;
+                temps2.restart();
+            }
+            fantome.mouvementJoueur(niveau, 35, 19);
         }
 
-        /*for (int i = 0; partenaire.persoSprite.getPosition().y <= 1700) {
-            if (temps.getElapsedTime().asMilliseconds() > 50) {//Pour ralentir l'animation
-                std::cout << "y = " << partenaire.persoSprite.getPosition().y << std::endl;
-                partenaire.persoSprite.move(0.f, 1.f);
-                temps.restart();
-            }
-        }*/
+        if (!fantome.animation())
+            EXIT_FAILURE;
 
         vu = joueur.getView();
 
         window.setView(vu);
 
-        //window.draw(mapSprite);
-        window.draw(map);
-        window.draw(fantomeSprite);
-        window.draw(joueur);
-        window.draw(partenaire);
-        window.display();
-        window.clear();
+        if (SurvivantInsuffisant) {
+            textureFin.loadFromFile("FinDePartie/ecranFinImposteur.png");
+            spriteFin.setTexture(textureFin);
+            spriteFin.setPosition(0, 0);
+            vu.setCenter(longueurPage/2, hauteurPage/2);
+            window.setView(vu);
+            window.draw(spriteFin);
+            window.display();
+            window.clear();
+
+        }
+        else {
+            window.draw(map);
+            window.draw(fantome);
+            window.draw(joueur);
+            for (IA* elem : IAvivante) {
+                window.draw(*elem);
+            }
+            window.display();
+            window.clear();
+        }
     }
 
     return 0;
